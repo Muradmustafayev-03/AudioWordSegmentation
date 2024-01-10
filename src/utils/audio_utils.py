@@ -1,3 +1,5 @@
+import time
+
 import IPython.display as ipd
 
 
@@ -9,7 +11,7 @@ def play_audio(array, sr=None):
     :param sr: Sampling rate
     :type sr: int
     """
-    ipd.display(ipd.Audio(array, rate=sr))
+    ipd.display(ipd.Audio(array, rate=sr, autoplay=True))
 
 
 def listen_to_segments(words, sr=None):
@@ -21,5 +23,6 @@ def listen_to_segments(words, sr=None):
     :type sr: int
     """
     for i, word in enumerate(words):
-        print(f'Listening to Word {i+1}')
+        print(f'Listening to Word {i + 1}')
         play_audio(word, sr=sr)
+        time.sleep(1)
